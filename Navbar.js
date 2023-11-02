@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -20,9 +21,16 @@ function Navbar() {
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
+          <Link to={'/cart'}>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link">Cart</a>
           </li>
+          </Link>
+          <Link to={'/products'}>
+          <li class="nav-item">
+            <a class="nav-link">Products</a>
+          </li>
+          </Link>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
