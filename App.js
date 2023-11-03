@@ -7,6 +7,7 @@ import Slide from './Components/Slide';
 import Products from './Components/Products';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Cart from './Components/Cart.js';
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/products' element={<Products/>}/>
         <Route path='/cart' element={<Cart/>}/>
       </Routes>
+      <Toaster/>
       </BrowserRouter>
   
     
