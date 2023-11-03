@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Images/mobile.jpg";
 import axios from "axios";
+import toast from "react-hot-toast";
+
 function Products() {
     const [Products,setproducts]= useState([])
     useEffect(()=>{
@@ -13,6 +15,15 @@ function Products() {
         }
         fetchproducts()
     },[])
+    const addToCart =async(list)=>{
+      const res = await axios.post('https://6543876801b5e279de2087eb.mockapi.io/cart',list)
+      if(res.status===201){
+        toast.success("Added To Cart")
+      }
+      if (res.status !==201){
+        toast.error("Something Went wrong")
+      }
+    }
   return (
     <div className="container my-3">
       <div className="row">
@@ -44,8 +55,8 @@ function Products() {
                     <p class="card-text">
                      {list.Description}
                     </p>
-                    <button btn btn-sm className="btn btn-sm btn-outline-primary">
-                      Add to cart +
+                    <button btn btn-sm className="btn btn-sm btn-outline-primary" onClick={()=>addToCart(list)}>
+                      Add To Cart +
                     </button>
                   </div>
                 </div>
